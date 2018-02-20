@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @job_schedule.job %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @job_schedule.name %>
+</p>
+
+<%= link_to 'Edit', edit_job_schedule_path(@job_schedule) %> |
+<%= link_to 'Back', job_schedules_path %>
