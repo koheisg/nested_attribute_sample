@@ -15,6 +15,7 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    @job.job_schedules.build
   end
 
   # GET /jobs/1/edit
@@ -24,6 +25,7 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
+    debugger
     @job = Job.new(job_params)
 
     respond_to do |format|
@@ -69,6 +71,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:name)
+      params.require(:job).permit(:name, job_schedules_attributes: [:name])
     end
 end
